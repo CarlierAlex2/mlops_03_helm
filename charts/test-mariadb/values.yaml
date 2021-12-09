@@ -31,7 +31,7 @@ volume:
 service:
   name: test-mariadb-svc
   portName: 3306tcp
-  serviceType: ClusterIP
+  type: ClusterIP
   port: 3306
   targetPort: 3306
   protocol: TCP

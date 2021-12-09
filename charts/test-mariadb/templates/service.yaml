@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.service.name }}
   namespace: {{ .Values.namespace }}
 spec:
+  type: {{ .Values.service.type }}
   selector:
     workload.user.cattle.io/workloadselector: "apps.deployment-{{ .Values.image.workloadselector }}"
     app: {{ .Chart.Name }}
