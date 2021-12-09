@@ -5,7 +5,6 @@
 replicaCount: 1
 namespace: carlier-alex-testspace-charts
 nodeName: carlier-alex
-workloadselector: carlier-alex-testspace-test-mariadb
 
 image:
   repository: mariadb

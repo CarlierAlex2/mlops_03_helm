@@ -8,12 +8,12 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: "apps.deployment-{{ .Values.image.workloadselector }}"
+      workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
       app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: "apps.deployment-{{ .Values.image.workloadselector }}"
+        workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
         app: {{ .Chart.Name }}
     spec:
       containers:
