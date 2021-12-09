@@ -24,7 +24,6 @@ spec:
         - containerPort: {{ .Values.deployment.containerPort }}
           name: {{ .Values.deployment.portName }}
           protocol: {{ .Values.deployment.protocol }}
-          _serviceType: {{ .Values.service.type }}
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}
