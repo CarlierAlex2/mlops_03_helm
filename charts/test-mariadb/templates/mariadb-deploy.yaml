@@ -1,29 +1,28 @@
-# mariadb.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}
+  name: {{ .Values.mariadb.name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
-      app: {{ .Chart.Name }}
+      app: {{ .Values.mariadb.name }}
   template:
     metadata:
       labels:
         workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
-        app: {{ .Chart.Name }}
+        app: {{ .Values.mariadb.name }}
     spec:
       containers:
-      - name: {{ .Chart.Name }}
+      - name: {{ .Values.mariadb.name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.deployment.containerPort }}
-          name: {{ .Values.deployment.portName }}
-          protocol: {{ .Values.deployment.protocol }}
+        - containerPort: {{ .Values.mariadb.development.containerPort }}
+          name: {{ .Values.mariadb.development.portName }}
+          protocol: {{ .Values.mariadb.development.protocol }}
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}

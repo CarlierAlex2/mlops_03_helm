@@ -6,23 +6,24 @@ replicaCount: 1
 namespace: carlier-alex-testspace-charts
 nodeName: carlier-alex
 
-mariadb:
-  name: test-mariadb
+adminer:
+  name: test-adminer
   image:
-    repository: mariadb
-    tag: "10.5.9"
+    repository: adminer
+    tag: "4.8.0"
     pullPolicy: Always
+    pullSecrets: ghcr-carlieralex-charts
   deployment:
-    portName: 3306tcp
+    portName: 8080tcp
     serviceType: ClusterIP
     protocol: TCP
-    containerPort: 3306
+    containerPort: 8080
   service:
-    name: test-mariadb-svc
-    portName: 3306tcp-svc
+    name: test-adminer-svc
+    portName: 8080tcp-svc
     type: ClusterIP
-    port: 3306
-    targetPort: 3306
+    port: 8080
+    targetPort: 8080
     protocol: TCP
 
 env:

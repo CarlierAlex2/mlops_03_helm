@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.adminer.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-adminer
+      app: {{ .Values.adminer.name }}
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-adminer
+        app: {{ .Values.adminer.name }}
+    spec:
+      containers:
+      - name: {{ .Values.adminer.name }}
+        image: "{{ .Values.adminer.image.repository }}:{{ .Values.adminer.image.tag }}"
+        imagePullPolicy: {{ .Values.adminer.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.adminer.deployment.containerPort }}
+          name: {{ .Values.adminer.deployment.portName }}
+          protocol: {{ .Values.adminer.deployment.protocol }}
+        envFrom:
+        - secretRef:
+            name: {{ .Values.env.name }}
+            optional: {{ .Values.env.optional }}
+      nodeName: {{ .Values.nodeName }}
+      restartPolicy: Always
