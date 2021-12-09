@@ -29,6 +29,7 @@ volume:
   claimName: carlieralex-charts-pvc
   pvName: carlieralex-charts-pvc
   nodeSelector: carlier-alex
+  label: test-chart-pv
 
 service:
   name: test-mariadb-svc
@@ -37,7 +38,6 @@ service:
   port: 3306
   targetPort: 3306
   protocol: TCP
-  label: test-chart-pv
 
 imagePullSecrets: []
 nameOverride: ""
