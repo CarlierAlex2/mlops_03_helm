@@ -551,6 +551,21 @@ entries:
   test-adminer:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-12-09T20:29:49.560543771Z"
+    description: adminer deployment & service
+    digest: c02970f4c559a5ef5ebe0bf56118c1d0dad79bf6d23155154989f87eaf827c9f
+    home: https://helm.sh/helm
+    maintainers:
+    - email: alex.carlier@student.howest.be
+      name: Carlier Alex
+    name: test-adminer
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-adminer-0.0.2/test-adminer-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-12-09T19:35:15.345614729Z"
     description: adminer deployment & service
     digest: 7669af8fc4bcfdcbb8c67324bf909dd69d88ed4ad69ef2422bf66ce3fa7146e3
@@ -565,6 +580,21 @@ entries:
     - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-adminer-0.0.1/test-adminer-0.0.1.tgz
     version: 0.0.1
   test-mariadb:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-12-09T20:29:49.68439242Z"
+    description: mariadb deployment & service
+    digest: a33acbde586b7bf234fc8622c6a50ef53157dd9ae262e1ae406931d883570960
+    home: https://helm.sh/helm
+    maintainers:
+    - email: alex.carlier@student.howest.be
+      name: Carlier Alex
+    name: test-mariadb
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-mariadb-1.0.16/test-mariadb-1.0.16.tgz
+    version: 1.0.16
   - apiVersion: v2
     appVersion: "1.0"
     created: "2021-12-09T20:20:59.894327365Z"
