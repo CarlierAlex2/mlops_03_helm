@@ -20,9 +20,9 @@ spec:
         image: "{{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}"
         imagePullPolicy: {{ .Values.mariadb.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.mariadb.development.containerPort }}
-          name: {{ .Values.mariadb.development.portName }}
-          protocol: {{ .Values.mariadb.development.protocol }}
+        - containerPort: {{ .Values.mariadb.deployment.containerPort }}
+          name: {{ .Values.mariadb.deployment.portName }}
+          protocol: {{ .Values.mariadb.deployment.protocol }}
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}
