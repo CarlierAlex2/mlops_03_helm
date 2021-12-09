@@ -19,7 +19,7 @@ deployment:
   containerPort: 3306
   
 env:
-  name: carlieralex-test-secrets
+  name: carlieralex-charts-secrets
   optional: false
 
 volume:
