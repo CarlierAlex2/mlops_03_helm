@@ -1,0 +1,39 @@
+# mariadb.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: {{ .Values.workloadselector }}
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: {{ .Values.workloadselector }}
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerPort }}
+          name: {{ .Values.deployment.portName }}
+          protocol: {{ .Values.deployment.protocol }}
+          _serviceType: {{ .Values.deployment.portType }}
+        envFrom:
+        - secretRef:
+            name: {{ .Values.env.name }}
+            optional: {{ .Values.env.optional }}
+        volumeMounts:
+        - name: {{ .Values.volume.name }}
+          mountPath: {{ .Values.volume.mountPath }}
+      nodeName: {{ .Values.nodeName }}
+      volumes:
+      - name: {{ .Values.volume.name }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.volume.claimName }}

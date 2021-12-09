@@ -1,0 +1,57 @@
+# Default values for example.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+namespace: carlier-alex-testspace
+nodeName: carlier-alex
+workloadselector: apps.deployment-carlier-alex-testspace-test-mariadb
+
+image:
+  repository: mariadb
+  tag: "10.5.9"
+  pullPolicy: Always
+
+deployment:
+  name: test-mariadb
+  portName: 3306tcp
+  portType: ClusterIP
+  protocol: TCP
+  containerPort: 3306
+  
+env:
+  name: carlieralex-test-secrets
+  optional: false
+
+volume:
+  name: test-mariadb-storage
+  mountPath: /var/lib/mysql
+  claimName: test-carlieralex-pvc
+
+service:
+  name: test-mariadb-svc
+  portName: 3306tcp
+  type: ClusterIP
+  port: 3306
+  targetPort: 3306
+  protocol: TCP
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: 
+  kubernetes.io/hostname: carlier-alex
+
