@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: {{ .Values.mariadb.name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: "{{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}"
+        imagePullPolicy: {{ .Values.mariadb.image.pullPolicy }}
         ports:
         - containerPort: {{ .Values.mariadb.development.containerPort }}
           name: {{ .Values.mariadb.development.portName }}
