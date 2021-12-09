@@ -6,25 +6,24 @@ replicaCount: 1
 namespace: carlier-alex-testspace-charts
 nodeName: carlier-alex
 
-adminer:
-  name: test-adminer
-  image:
-    repository: adminer
-    tag: "4.8.0"
-    pullPolicy: Always
-    pullSecrets: ghcr-carlieralex-charts
-  deployment:
-    portName: 8080tcp
-    serviceType: ClusterIP
-    protocol: TCP
-    containerPort: 8080
-  service:
-    name: test-adminer-svc
-    portName: 8080tcp-svc
-    type: ClusterIP
-    port: 8080
-    targetPort: 8080
-    protocol: TCP
+name: test-adminer
+image:
+  repository: adminer
+  tag: "4.8.0"
+  pullPolicy: Always
+  pullSecrets: ghcr-carlieralex-charts
+deployment:
+  portName: 8080tcp
+  serviceType: ClusterIP
+  protocol: TCP
+  containerPort: 8080
+service:
+  name: test-adminer-svc
+  portName: 8080tcp-svc
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+  protocol: TCP
 
 env:
   name: carlieralex-charts-secrets

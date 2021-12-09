@@ -6,24 +6,23 @@ replicaCount: 1
 namespace: carlier-alex-testspace-charts
 nodeName: carlier-alex
 
-mariadb:
-  name: test-mariadb
-  image:
-    repository: mariadb
-    tag: "10.5.9"
-    pullPolicy: Always
-  deployment:
-    portName: 3306tcp
-    serviceType: ClusterIP
-    protocol: TCP
-    containerPort: 3306
-  service:
-    name: test-mariadb-svc
-    portName: 3306tcp-svc
-    type: ClusterIP
-    port: 3306
-    targetPort: 3306
-    protocol: TCP
+name: test-mariadb
+image:
+  repository: mariadb
+  tag: "10.5.9"
+  pullPolicy: Always
+deployment:
+  portName: 3306tcp
+  serviceType: ClusterIP
+  protocol: TCP
+  containerPort: 3306
+service:
+  name: test-mariadb-svc
+  portName: 3306tcp-svc
+  type: ClusterIP
+  port: 3306
+  targetPort: 3306
+  protocol: TCP
 
 env:
   name: carlieralex-charts-secrets

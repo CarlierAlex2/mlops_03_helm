@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.adminer.name }}
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-adminer
-      app: {{ .Values.adminer.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
         workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-adminer
-        app: {{ .Values.adminer.name }}
+        app: {{ .Values.name }}
     spec:
       containers:
-      - name: {{ .Values.adminer.name }}
-        image: "{{ .Values.adminer.image.repository }}:{{ .Values.adminer.image.tag }}"
-        imagePullPolicy: {{ .Values.adminer.image.pullPolicy }}
+      - name: {{ .Values.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.adminer.deployment.containerPort }}
-          name: {{ .Values.adminer.deployment.portName }}
-          protocol: {{ .Values.adminer.deployment.protocol }}
+        - containerPort: {{ .Values.deployment.containerPort }}
+          name: {{ .Values.deployment.portName }}
+          protocol: {{ .Values.deployment.protocol }}
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}

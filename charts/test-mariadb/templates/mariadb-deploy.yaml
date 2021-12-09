@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.mariadb.name }}
+  name: {{ .Values.name }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
-      app: {{ .Values.mariadb.name }}
+      app: {{ .Values.name }}
   template:
     metadata:
       labels:
         workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-mariadb
-        app: {{ .Values.mariadb.name }}
+        app: {{ .Values.name }}
     spec:
       containers:
-      - name: {{ .Values.mariadb.name }}
-        image: "{{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}"
-        imagePullPolicy: {{ .Values.mariadb.image.pullPolicy }}
+      - name: {{ .Values.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
-        - containerPort: {{ .Values.mariadb.deployment.containerPort }}
-          name: {{ .Values.mariadb.deployment.portName }}
-          protocol: {{ .Values.mariadb.deployment.protocol }}
+        - containerPort: {{ .Values.deployment.containerPort }}
+          name: {{ .Values.deployment.portName }}
+          protocol: {{ .Values.deployment.protocol }}
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}
