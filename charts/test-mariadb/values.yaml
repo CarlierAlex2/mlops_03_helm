@@ -25,7 +25,10 @@ env:
 volume:
   name: test-mariadb-storage
   mountPath: /var/lib/mysql
-  claimName: test-carlieralex-pvc
+  path: /mnt/k8s_data/test-chart-db
+  claimName: carlieralex-charts-pvc
+  pvName: carlieralex-charts-pvc
+  nodeSelector: carlier-alex
 
 service:
   name: test-mariadb-svc
@@ -34,6 +37,7 @@ service:
   port: 3306
   targetPort: 3306
   protocol: TCP
+  label: test-chart-pv
 
 imagePullSecrets: []
 nameOverride: ""
