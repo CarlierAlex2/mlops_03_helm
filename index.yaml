@@ -548,7 +548,38 @@ entries:
     urls:
     - https://github.com/helm/charts-repo-actions-demo/releases/download/example-v2-0.2.2/example-v2-0.2.2.tgz
     version: 0.2.2
+  test-adminer:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-12-09T19:35:15.345614729Z"
+    description: adminer deployment & service
+    digest: 7669af8fc4bcfdcbb8c67324bf909dd69d88ed4ad69ef2422bf66ce3fa7146e3
+    home: https://helm.sh/helm
+    maintainers:
+    - email: alex.carlier@student.howest.be
+      name: Carlier Alex
+    name: test-adminer
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-adminer-0.0.1/test-adminer-0.0.1.tgz
+    version: 0.0.1
   test-mariadb:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-12-09T19:35:15.485968425Z"
+    description: mariadb deployment & service
+    digest: e71c8e64618349dabf3f44ed6409216d9fa84f5a1c56e9f7130c5339d6f8efac
+    home: https://helm.sh/helm
+    maintainers:
+    - email: alex.carlier@student.howest.be
+      name: Carlier Alex
+    name: test-mariadb
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-mariadb-1.0.13/test-mariadb-1.0.13.tgz
+    version: 1.0.13
   - apiVersion: v2
     appVersion: "1.0"
     created: "2021-12-09T18:42:43.860387039Z"
