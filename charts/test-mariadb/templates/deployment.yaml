@@ -24,7 +24,7 @@ spec:
         - containerPort: {{ .Values.deployment.containerPort }}
           name: {{ .Values.deployment.portName }}
           protocol: {{ .Values.deployment.protocol }}
-          _serviceType: {{ .Values.deployment.portType }}
+          _serviceType: ClusterIP
         envFrom:
         - secretRef:
             name: {{ .Values.env.name }}

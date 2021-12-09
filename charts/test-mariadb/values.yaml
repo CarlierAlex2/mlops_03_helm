@@ -15,7 +15,7 @@ image:
 deployment:
   name: test-mariadb
   portName: 3306tcp
-  portType: ClusterIP
+  serviceType: ClusterIP
   protocol: TCP
   containerPort: 3306
   
@@ -31,7 +31,7 @@ volume:
 service:
   name: test-mariadb-svc
   portName: 3306tcp
-  type: ClusterIP
+  serviceType: ClusterIP
   port: 3306
   targetPort: 3306
   protocol: TCP
