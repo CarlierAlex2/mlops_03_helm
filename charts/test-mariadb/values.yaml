@@ -5,7 +5,7 @@
 replicaCount: 1
 namespace: carlier-alex-testspace
 nodeName: carlier-alex
-workloadselector: "apps.deployment-carlier-alex-testspace-test-mariadb"
+workloadselector: carlier-alex-testspace-test-mariadb
 
 image:
   repository: mariadb
