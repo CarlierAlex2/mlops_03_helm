@@ -8,4 +8,4 @@ maintainers:
 name: test-adminer
 sources:
   - https://github.com/helm/helm
-version: 0.0.2
+version: 1.1.0
