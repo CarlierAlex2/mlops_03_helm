@@ -6,23 +6,23 @@ replicaCount: 1
 namespace: carlier-alex-testspace-charts
 nodeName: carlier-alex
 
-name: test-adminer
+name: test-fastapi
 image:
-  repository: adminer
-  tag: "4.8.0"
+  repository: ghcr.io/carlieralex2/mlops-fastapi-2
+  tag: latest
   pullPolicy: Always
   pullSecrets: ghcr-carlieralex-charts
 deployment:
-  portName: 8080tcp
+  portName: 80tcp
   serviceType: ClusterIP
   protocol: TCP
-  containerPort: 8080
+  containerPort: 80
 service:
-  name: test-adminer-svc
-  portName: 8080tcp-svc
+  name: test-fastapi-svc
+  portName: 80tcp-svc
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  port: 80
+  targetPort: 80
   protocol: TCP
 
 env:

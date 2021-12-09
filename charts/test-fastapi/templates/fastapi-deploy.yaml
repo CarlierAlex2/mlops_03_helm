@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-fastapi
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-carlier-alex-testspace-charts-test-fastapi
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.deployment.containerPort }}
+          name: {{ .Values.deployment.portName }}
+          protocol: {{ .Values.deployment.protocol }}
+        envFrom:
+        - secretRef:
+            name: {{ .Values.env.name }}
+            optional: {{ .Values.env.optional }}
+      nodeName: {{ .Values.nodeName }}
+      restartPolicy: Always
+      imagePullSecrets:
+      - name:  {{ .Values.image.pullSecrets }}
