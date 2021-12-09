@@ -551,6 +551,21 @@ entries:
   test-mariadb:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2021-12-09T18:13:02.405311089Z"
+    description: mariadb deployment & service
+    digest: 77c3f7c5a5005f8fae1ef347c3a22e6a85c9b9f96fcae6df2c7a676b36774ea5
+    home: https://helm.sh/helm
+    maintainers:
+    - email: alex.carlier@student.howest.be
+      name: Carlier Alex
+    name: test-mariadb
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - https://github.com/CarlierAlex2/mlops_03_helm/releases/download/test-mariadb-1.0.9/test-mariadb-1.0.9.tgz
+    version: 1.0.9
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2021-12-09T18:08:47.521314692Z"
     description: mariadb deployment & service
     digest: 77e35d2ee54963a45c5a666b750fd6ad8018180fda6725a3a962d51c14745b08
